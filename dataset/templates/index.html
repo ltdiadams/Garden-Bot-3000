@@ -1,0 +1,177 @@
+<html>
+<head>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
+<style>
+#chart{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+</style>
+</head>
+<body>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" id="chart">
+    <canvas id="barChart"></canvas>
+</div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+<div class="col-md-12" id="chart">
+        <canvas id="lineChart"></canvas>
+</div>
+
+</div>
+<br>
+<br>
+<div class="row">
+        <div class="col-md-12" id="chart">
+        <canvas id="lineChart2"></canvas>
+    </div>
+</div>
+<br>
+<br>
+<div class="row"> 
+       <div class="col-md-12" id="chart">
+            <canvas id="lineChart3"></canvas>
+        </div>
+    </div>
+  
+<script>
+console.log("{{result_dict.time}}")
+
+</script>
+
+<script>
+
+    
+//bar
+var ctxB = document.getElementById("barChart").getContext('2d');
+var myBarChart = new Chart(ctxB, {
+type: 'bar',
+data: {
+labels: [ "Moisture", "Pump", "Light", "Temperature"],
+datasets: [{
+label: 'Reading',
+data: ["{{last_dict.moisture|safe}}","{{last_dict.pump|safe}}","{{last_dict.light|safe}}","{{last_dict.temperature|safe}}"],
+backgroundColor: [
+'rgba(54, 162, 235, 0.2)',
+'rgba(255, 206, 86, 0.2)',
+'rgba(75, 192, 192, 0.2)',
+'rgba(153, 102, 255, 0.2)',
+'rgba(255, 159, 64, 0.2)'
+],
+borderColor: [
+'rgba(54, 162, 235, 1)',
+'rgba(255, 206, 86, 1)',
+'rgba(75, 192, 192, 1)',
+'rgba(153, 102, 255, 1)',
+'rgba(255, 159, 64, 1)'
+],
+borderWidth: 1
+}]
+},
+options: {
+scales: {
+yAxes: [{
+ticks: {
+beginAtZero: true
+}
+}]
+}
+}
+});
+
+
+var ctxL = document.getElementById("lineChart").getContext('2d');
+
+var myLineChart = new Chart(ctxL, {
+type: 'line',
+data: {
+labels: {{result_dict.time|safe}},
+datasets: [{
+label: "Moisture Vs Time",
+data: {{result_dict.moisture|safe}},
+backgroundColor : [
+'rgba(54, 162, 235, 0.2)',
+
+],
+borderColor: [
+'rgba(54, 162, 235, 1)',
+],
+borderWidth: 2
+}
+]
+},
+options: {
+responsive: true
+}
+});
+var ctxL = document.getElementById("lineChart2").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+type: 'line',
+data: {
+labels: {{result_dict.time|safe}},
+datasets: [{
+label: "Light Vs Time",
+data: {{result_dict.light|safe}},
+backgroundColor: [
+'rgba(255, 206, 86, 0.2)',
+],
+borderColor: [
+'rgba(255, 206, 86, 1)',
+],
+borderWidth: 2
+}
+
+]
+},
+options: {
+responsive: true
+}
+});
+var ctxL = document.getElementById("lineChart3").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+type: 'line',
+data: {
+labels: {{result_dict.time|safe}},
+datasets: [{
+label: "Temperature Vs Time",
+data: {{result_dict.temperature|safe}},
+backgroundColor: [
+'rgba(153, 102, 255, .2)',
+],
+borderColor: [
+'rgba(153, 102, 255, 1)',
+],
+borderWidth: 2
+}
+
+]
+},
+options: {
+responsive: true
+}
+});
+
+</script>
+</div>
+
+</body>
+</html>
