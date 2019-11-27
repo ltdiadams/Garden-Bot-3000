@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from dataset.views import parse_data, fill_threshold
+from django.conf.urls.static import static
+from django.conf import settings
+import dataset.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', parse_data),
-    path('threshold/', fill_threshold)
-]
+    path('threshold/', fill_threshold),
+    # path('upload/', new_csv)
+    path('upload/', views.UploadFileView.as_view(), name='upload_my_file'),
+    path('uploaded/?P<pk>\d+)/', views.UploadDetailView.as_view(), name='my_file')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
