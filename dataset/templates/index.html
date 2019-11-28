@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-    
+
 <div class="container">
   <div class="row">
     <div class="col-md-12" id="chart">
@@ -47,12 +47,12 @@
 </div>
 <br>
 <br>
-<div class="row"> 
+<div class="row">
        <div class="col-md-12" id="chart">
             <canvas id="lineChart3"></canvas>
         </div>
     </div>
-  
+
 <script>
 console.log("{{result_dict.time}}")
 
@@ -60,16 +60,16 @@ console.log("{{result_dict.time}}")
 
 <script>
 
-    
+
 //bar
 var ctxB = document.getElementById("barChart").getContext('2d');
 var myBarChart = new Chart(ctxB, {
 type: 'bar',
 data: {
-labels: [ "Moisture", "Pump", "Light", "Temperature"],
+labels: [ "Moisture", "Light", "Temperature"],
 datasets: [{
 label: 'Reading',
-data: ["{{last_dict.moisture|safe}}","{{last_dict.pump|safe}}","{{last_dict.light|safe}}","{{last_dict.temperature|safe}}"],
+data: ["{{last_dict.moisture|safe}}","{{last_dict.light|safe}}","{{last_dict.temperature|safe}}"],
 backgroundColor: [
 'rgba(54, 162, 235, 0.2)',
 'rgba(255, 206, 86, 0.2)',
