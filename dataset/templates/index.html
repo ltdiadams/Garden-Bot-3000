@@ -69,7 +69,8 @@ data: {
 labels: [ "Moisture", "Light", "Temperature"],
 datasets: [{
 label: 'Reading',
-data: ["{{last_dict.moisture|safe}}","{{last_dict.light|safe}}","{{last_dict.temperature|safe}}"],
+// data: ["{{last_dict.moisture|safe}}","{{last_dict.light|safe}}","{{last_dict.temperature|safe}}"],
+data: ["{{last_dict.current_moist|safe}}","{{last_dict.current_light|safe}}","{{last_dict.current_temp|safe}}"],
 backgroundColor: [
 'rgba(54, 162, 235, 0.2)',
 'rgba(255, 206, 86, 0.2)',
@@ -107,7 +108,8 @@ data: {
 labels: {{result_dict.time|safe}},
 datasets: [{
 label: "Moisture Vs Time",
-data: {{result_dict.moisture|safe}},
+// data: {{result_dict.moisture|safe}},
+data: {{result_dict.current_moist|safe}},
 backgroundColor : [
 'rgba(54, 162, 235, 0.2)',
 
@@ -130,7 +132,8 @@ data: {
 labels: {{result_dict.time|safe}},
 datasets: [{
 label: "Light Vs Time",
-data: {{result_dict.light|safe}},
+// data: {{result_dict.light|safe}},
+data: {{result_dict.current_light|safe}},
 backgroundColor: [
 'rgba(255, 206, 86, 0.2)',
 ],
@@ -153,7 +156,8 @@ data: {
 labels: {{result_dict.time|safe}},
 datasets: [{
 label: "Temperature Vs Time",
-data: {{result_dict.temperature|safe}},
+// data: {{result_dict.temperature|safe}},
+data: {{result_dict.current_temp|safe}},
 backgroundColor: [
 'rgba(153, 102, 255, .2)',
 ],
