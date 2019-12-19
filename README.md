@@ -11,4 +11,4 @@ The upload view is useful if a user wishes to upload one csv file to the webapp,
 This website was created using a high-level web framework for Python called Django. The appeal to Django was its versatility. It can be used to design practically any type of webapp and can deliver content through HTML format easily, and comes with a lot of features, straight out of the box. Coupled with Django and HTML5, I also made use of a JavaScript library for creating charts with an HTML5 canvas, this library was Chart.js, as it was able to create elegant graphs with appealing animations as well. With this, another software library that was made use of was Pandas, used in the web app for reading in columns and rows of a CSV, and then sending that data to be used to make graphs.
 
 
-*Built for a Digital Signal Processing class project*
+*Built for a Digital Signal Processing class project, planning to do more work down the road*
