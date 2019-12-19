@@ -1,27 +1,17 @@
+<!-- Growbot: create Upload Form HTML for webapp
+     To be deployed as a public webapp
+
+     Logan DiAdams,
+     For PHYS/COMP-3361
+     2019
+-->
+
 <html>
     <body>
-        <!-- <form action="{% url "upload_my_file" %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
-                    <div class="col-md-8">
-                        <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
-                         <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
-                    </div>
-                </div>
-        </form> -->
         <form action="{% url "upload_my_file" %}" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
+          {% csrf_token %} 
           {{ form.as_p }}
           <input type="submit" value="submit" />
         </form>
-        <!-- <form action="% url 'upload' %" method="post" enctype="multipart/form-data">
-            <input type = "file" name = "filename" id="filename" />{% csrf_token%}
-            <input type="submit" value="FORECAST"/>
-        </form> -->
     </body>
 </html>

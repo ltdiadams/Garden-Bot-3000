@@ -13,6 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# Growbot: create urls for different views of webapp
+# To be deployed as a public webapp
+#
+# Logan DiAdams,
+# For PHYS/COMP-3361
+# 2019
+
 from django.contrib import admin
 from django.urls import path
 from dataset.views import parse_data, fill_threshold

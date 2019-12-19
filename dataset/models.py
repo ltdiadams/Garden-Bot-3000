@@ -1,22 +1,19 @@
+# Growbot: create models for webapp
+# To be deployed as a public webapp
+
+# Logan DiAdams,
+# For PHYS/COMP-3361
+# 2019
+
+# import libraries
+
 from django.db import models
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import os
-# from django.db.models.signals import pre_save
-# from django.dispatch import receiver
-# import os
-#
-# class uploadfolder(models.Model):
-#     """ my application """
-#     File_to_upload = models.FileField(upload_to='')
-#
-# @receiver(pre_save, sender=uploadfolder)
-# def file_update(sender, **kwargs):
-#     upload_folder_instance = kwargs['instance']
-#     if upload_folder_instance.File_to_upload:
-#         path = upload_folder_instance.File_to_upload.path
-#         os.remove(path)
 
+# -----------------------------------------------------------------------------
+# overwrite csv file in MEDIA if csv file uploaded already exists
 
 class OverwriteStorage(FileSystemStorage):
 
@@ -25,9 +22,8 @@ class OverwriteStorage(FileSystemStorage):
             os.remove(os.path.join(settings.MEDIA_ROOT, name))
         return name
 
-# class Media(models.Model):
-#     name = models.CharField(u"Nome", max_length=128)
-#     media = models.FileField(u"Arquivo", upload_to='', storage=OverwriteStorage())
+# -----------------------------------------------------------------------------
+# maps file to MEDIA
 
 class UploadFile(models.Model):
     # title = models.CharField()

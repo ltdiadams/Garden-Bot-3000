@@ -1,3 +1,11 @@
+<!-- Growbot: create Main HTML for webapp
+     To be deployed as a public webapp
+
+     Logan DiAdams,
+     For PHYS/COMP-3361
+     2019
+-->
+
 <html>
 <head>
 <!-- Font Awesome -->
@@ -23,6 +31,9 @@
 </style>
 </head>
 <body>
+
+
+<!-- HTML Formatting For Graphs -->
 
 <div class="container">
   <div class="row">
@@ -60,8 +71,11 @@ console.log("{{result_dict.time}}")
 
 <script>
 
+// -----------------------------------------------------------------------------
+// Bar Graph
+// -----------------------------------------------------------------------------
 
-//bar
+
 var ctxB = document.getElementById("barChart").getContext('2d');
 var myBarChart = new Chart(ctxB, {
 type: 'bar',
@@ -99,7 +113,13 @@ beginAtZero: true
 }
 });
 
+// -----------------------------------------------------------------------------
+// Line Graphs
+// -----------------------------------------------------------------------------
 
+// -----------------------------------------------------------------------------
+// Moisture V Time Graph
+// -----------------------------------------------------------------------------
 var ctxL = document.getElementById("lineChart").getContext('2d');
 
 var myLineChart = new Chart(ctxL, {
@@ -125,6 +145,11 @@ options: {
 responsive: true
 }
 });
+
+
+// -----------------------------------------------------------------------------
+// Light V Time Graph
+// -----------------------------------------------------------------------------
 var ctxL = document.getElementById("lineChart2").getContext('2d');
 var myLineChart = new Chart(ctxL, {
 type: 'line',
@@ -149,6 +174,11 @@ options: {
 responsive: true
 }
 });
+
+
+// -----------------------------------------------------------------------------
+// Temperature V Time Graph
+// -----------------------------------------------------------------------------
 var ctxL = document.getElementById("lineChart3").getContext('2d');
 var myLineChart = new Chart(ctxL, {
 type: 'line',
